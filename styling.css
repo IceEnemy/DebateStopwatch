@@ -1,0 +1,126 @@
+:root{
+    --clr:#5098f7;
+    --drk:rgb(8, 75, 201);
+    --light:#c7eaff;
+    --grn:#6fff76;
+    --ylw:#fdff6f;
+    --org:#ffb56f;
+    --rd:#ff6f6f;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.5s;
+    height: 100vh;
+}
+
+#time{
+    width: 50vw;
+}
+
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 2vw;
+    box-shadow: 0 0 4vw 1vw rgba(0,0,0,0.2);
+    padding: 20px 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 1s;
+}
+
+
+
+.time_container{
+    position: relative;
+    width: 120%;
+    left: -10%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 1vw;
+    background-color: var(--light);
+    box-shadow: 0 0 1.5vw 0.1vw rgba(0,0,0,0.2);
+    margin: 5vh 0 5vh 0;
+    transition: background-color 1s;
+}
+
+.transp{
+    background-color: transparent;
+    box-shadow: none;
+    /* color: white; */
+}
+
+.button_container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button{
+    padding: 0.5vw 1vw 0.5vw 1vw;
+    box-shadow: 0.2vw 0.2vw 0.1vw 0.1vw var(--drk);
+    border-radius: 1vw;
+    border: solid var(--clr);
+    color: black;
+    background-color: transparent;
+    transition: background-color 0.3s, transform 0.3s, color 0.3s;
+}
+
+.pressed {
+    background-color: var(--clr);
+    color: var(--light);
+    /* transform: translateY(4px); */
+    box-shadow: 0.2vw 0.2vw 0.1vw 0.1vw var(--drk) inset;
+    pointer-events: none;
+}
+
+.warn1{
+    background-color: var(--grn);
+}
+
+.warn2{
+    background-color: var(--ylw);
+}
+
+.warn3{
+    background-color: var(--org);
+}
+
+.warn4{
+    background-color: var(--rd);
+}
+
+.button:hover{
+    transform: translateY(-2px);
+    background-color: var(--clr);
+    color: var(--light);
+}
+
+.option_container{
+    padding: 1vw;
+}
+
+.head{
+    font-size: 3vw;
+    margin: 0;
+    font-family: Verdana;
+}
+
+.digit{
+    font-size: 8vw;
+    font-family: Verdana;
+}
+
+.txt{
+    font-size: 2vw;
+    font-family: Verdana;
+}
+
+

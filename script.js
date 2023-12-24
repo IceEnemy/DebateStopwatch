@@ -1,21 +1,34 @@
 const started = document.getElementById('start');
 const paused = document.getElementById('pause');
 const reseting = document.getElementById('reset');
+const opt = document.getElementById('options');
 
 let min = 0;
 let sec = 0;
 let ms = 0;
-let w1 = false;
 let sec1 = 10;
-let w2 = false;
 let sec2 = 15;
-let w3 = false;
 let sec3 = 20;
-let w4 = false;
 let sec4 = 25;
 let startTime = 0;
 let pauseTime = 0;
 let timer = false;
+let op_bar = false;
+
+opt.addEventListener('click', function(){
+    if(!op_bar){
+        document.getElementById('bar').style.visibility='hidden';
+        document.getElementById('bar').style.opacity='0';
+        document.querySelector('.option_container').classList.add('transp');
+        op_bar = true;
+    }
+    else{
+        document.getElementById('bar').style.visibility='visible';
+        document.getElementById('bar').style.opacity='1';
+        document.querySelector('.option_container').classList.remove('transp');
+        op_bar = false;
+    }
+})
 
 started.addEventListener('click', function () {
     if (!timer) {
@@ -26,6 +39,8 @@ started.addEventListener('click', function () {
 
         document.querySelector('.time_container').classList.add('transp');
         document.querySelector('.container').classList.add('transp');
+        document.getElementById('options').style.visibility='hidden';
+        document.getElementById('options').style.opacity='0';
 
         if(!startTime){
             startTime = performance.now();
@@ -63,6 +78,8 @@ reseting.addEventListener('click', function () {
     document.body.classList.remove('warn1', 'warn2', 'warn3', 'warn4');
     document.querySelector('.time_container').classList.remove('transp');
     document.querySelector('.container').classList.remove('transp');
+    document.getElementById('options').style.visibility='visible';
+    document.getElementById('options').style.opacity='1';
     buttonUp('reset');
 });
 

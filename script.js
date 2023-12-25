@@ -6,14 +6,19 @@ const opt = document.getElementById('options');
 let min = 0;
 let sec = 0;
 let ms = 0;
-let sec1 = 10;
-let sec2 = 15;
-let sec3 = 20;
-let sec4 = 25;
+let sec1 = 120;
+let sec2 = 300;
+let sec3 = 420;
+let sec4 = 450;
 let startTime = 0;
 let pauseTime = 0;
 let timer = false;
-let op_bar = false;
+let op_bar = true;
+
+document.getElementById('g_time').placeholder = formatTime(sec1)
+document.getElementById('y_time').placeholder = formatTime(sec2)
+document.getElementById('o_time').placeholder = formatTime(sec3)
+document.getElementById('r_time').placeholder = formatTime(sec4)
 
 opt.addEventListener('click', function(){
     if(!op_bar){
@@ -129,6 +134,10 @@ function setBackgroundColor(min,sec){
             document.body.classList.add(currColor);
         }
     }
+    else{
+        // alert('done');
+        document.body.classList.remove('warn1', 'warn2', 'warn3', 'warn4');
+    }
 }
 
 function colorClass(min,sec){
@@ -145,5 +154,92 @@ function colorClass(min,sec){
     else if(totalSec < sec4){
         return 'warn4';
     }
+    // alert('hey');
     return null;
+}
+
+function parseTimeInput(input) {
+    var timeArr = input.split(':');
+    var minutes = parseInt(timeArr[0],10) || 0;
+    var seconds = parseInt(timeArr[1],10) || 0;
+    return minutes * 60 + seconds;
+}
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+}
+
+document.getElementById('g_form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const gInput = document.getElementById('g_time');
+    const userInput = gInput.value
+
+    gInput.value = '';
+    if(isValidTimeFormat(userInput)){
+        sec1 = parseTimeInput(userInput);
+        gInput.placeholder = formatTime(sec1);
+        document.getElementById('g_error').textContent = ''
+    }
+    else{
+        document.getElementById('g_error').textContent = 'Invalid Input!'
+    }
+});
+
+document.getElementById('y_form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const gInput = document.getElementById('y_time');
+    const userInput = gInput.value
+
+    gInput.value = '';
+    if(isValidTimeFormat(userInput)){
+        sec2 = parseTimeInput(userInput);
+        gInput.placeholder = formatTime(sec2);
+        document.getElementById('y_error').textContent = ''
+    }
+    else{
+        document.getElementById('y_error').textContent = 'Invalid Input!'
+    }
+});
+
+document.getElementById('o_form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const gInput = document.getElementById('o_time');
+    const userInput = gInput.value
+
+    gInput.value = '';
+    if(isValidTimeFormat(userInput)){
+        sec3 = parseTimeInput(userInput);
+        gInput.placeholder = formatTime(sec3);
+        document.getElementById('o_error').textContent = ''
+    }
+    else{
+        document.getElementById('o_error').textContent = 'Invalid Input!'
+    }
+});
+
+document.getElementById('r_form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const gInput = document.getElementById('r_time');
+    const userInput = gInput.value
+
+    gInput.value = '';
+    if(isValidTimeFormat(userInput)){
+        sec4 = parseTimeInput(userInput);
+        gInput.placeholder = formatTime(sec4);
+        document.getElementById('r_error').textContent = ''
+    }
+    else{
+        document.getElementById('r_error').textContent = 'Invalid Input!'
+    }
+});
+
+function isValidTimeFormat(timeString) {
+    const timeRegex = /^([0-5]?[0-9]):([0-5][0-9])$/;
+    return timeRegex.test(timeString);
 }

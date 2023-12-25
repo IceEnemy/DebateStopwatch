@@ -10,53 +10,46 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="option_container">
+    <div class="option_container transp">
         <button class="button txt" id="options">Options</button>
     </div>
     <div id="bar">
-        <div class="input_group warn1">
+        <form class="input_group warn1" id="g_form">
             <div class="inpdiv">
-                <input type="text" class="input_box" id="g_min">
-                <span class="txt">min</span>
-            </div>
-            <div class="inpdiv">
-                <input type="text" class="input_box" id="g_sec">
-                <span class="txt">sec</span>
-            </div>
-        </div>
-        
-        <div class="input_group warn2">
-            <div class="inpdiv">
-                <input type="text" class="input_box" id="y_min">
-                <span class="txt">min</span>
-            </div>
-            <div class="inpdiv">
-                <input type="text" class="input_box" id="y_sec">
-                <span class="txt">sec</span>
-            </div>
-        </div>
+                <input type="text" class="input_box" id="g_time">
+                <button class="button txt sub">submit</button>
+            </div>  
+        </form>
 
-        <div class="input_group warn3">
-            <div class="inpdiv">
-                <input type="text" class="input_box" id="o_min">
-                <span class="txt">min</span>
-            </div>
-            <div class="inpdiv">
-                <input type="text" class="input_box" id="o_sec">
-                <span class="txt">sec</span>
-            </div>
-        </div>
+        <p class="err" id="g_error"></p>
 
-        <div class="input_group warn4">
+        <form class="input_group warn2" id="y_form">
             <div class="inpdiv">
-                <input type="text" class="input_box" id="r_min">
-                <span class="txt">min</span>
-            </div>
+                <input type="text" class="input_box" id="y_time">
+                <button class="button txt sub">submit</button>
+            </div>  
+        </form>
+
+        <p class="err" id="y_error"></p>
+
+        <form class="input_group warn3" id="o_form">
             <div class="inpdiv">
-                <input type="text" class="input_box" id="r_sec">
-                <span class="txt">sec</span>
-            </div>
-        </div>
+                <input type="text" class="input_box" id="o_time">
+                <button class="button txt sub">submit</button>
+            </div>  
+        </form>
+
+        <p class="err" id="o_error"></p>
+
+        <form class="input_group warn4" id="r_form">
+            <div class="inpdiv">
+                <input type="text" class="input_box" id="r_time">
+                <button class="button txt sub">submit</button>
+            </div>  
+        </form>
+
+        <p class="err" id="r_error"></p>
+
     </div>
     <div class = "container">
         <div id="time">

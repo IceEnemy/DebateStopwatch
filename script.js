@@ -144,7 +144,7 @@ function setBackgroundColor(min,sec){
                 for(let i = 0; i<bellam; i++){
                     setTimeout(() => {
                         ding();
-                    }, i * 100);
+                    }, i * 500);
                 }
                 bellam++;
             }

@@ -14,6 +14,8 @@ let startTime = 0;
 let pauseTime = 0;
 let timer = false;
 let op_bar = true;
+let bellam = 1;
+var bell = new Audio('BellV2.mp3');
 
 document.getElementById('g_time').placeholder = formatTime(sec1)
 document.getElementById('y_time').placeholder = formatTime(sec2)
@@ -75,6 +77,7 @@ reseting.addEventListener('click', function () {
     min = 0;
     sec = 0;
     ms = 0;
+    bellam = 1;
     document.getElementById('min').innerHTML = "00";
     document.getElementById('sec').innerHTML = "00";
     document.getElementById('ms').innerHTML = "00";
@@ -126,12 +129,25 @@ function buttonUp(button){
     document.getElementById(button).classList.remove('pressed');
 }
 
+function ding(){
+    var bell = new Audio('BellV2.mp3');
+    bell.play();
+}
+
 function setBackgroundColor(min,sec){
     const currColor = colorClass(min,sec)
     if(currColor){
         if(!document.body.classList.contains(currColor)){
             document.body.classList.remove('warn1', 'warn2', 'warn3', 'warn4');
             document.body.classList.add(currColor);
+            if(currColor != 'warn1'){
+                for(let i = 0; i<bellam; i++){
+                    setTimeout(() => {
+                        ding();
+                    }, i * 100);
+                }
+                bellam++;
+            }
         }
     }
     else{
